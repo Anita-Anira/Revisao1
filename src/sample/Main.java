@@ -29,41 +29,62 @@ public class Main {
         System.out.println(opComp);
       //  System.exit(1);
 
+        int MAX_JOGADAS = 3;
+
         Scanner scan = new Scanner(System.in);
 
         boolean usuarioPar = false;
         int valorUsuario = 0;
+        boolean continuar=true;
+        int jogada = 0;
 
-        System.out.println("VOCÊ QUER SER PAR? 1 - SIM | 0- NÃO");
-        int res = scan.nextInt();
+        int[] escolhaUsuario;
+        int[] escolhaComputador;
 
-        if(res == 1){
-            usuarioPar = true;
+        escolhaUsuario = new int[MAX_JOGADAS];
+        escolhaComputador = new int[MAX_JOGADAS];
 
-        }else if(res == 0){
-            usuarioPar = false;
+        while(continuar && jogada < MAX_JOGADAS){
+            System.out.println("VOCÊ QUER SER PAR? 1 - SIM | 0- NÃO");
+            int res = scan.nextInt();
 
-        }else{
-            System.out.println("OPÇÃO INVÁLIDA!");
-            System.exit(1);
+            if (res == 1) {
+                usuarioPar = true;
+
+            } else if (res == 0) {
+                usuarioPar = false;
+
+            } else {
+                System.out.println("OPÇÃO INVÁLIDA!");
+                System.exit(1);
+            }
+
+            System.out.println("ESCOLHA UM NUMERO DE 0 A 10:");
+            valorUsuario = scan.nextInt();
+
+            if (valorUsuario < 0 || valorUsuario > 10) {
+                System.out.println("VALOR INVÁLIDO!");
+                System.exit(1);
+            }
+
+
+            // System.out.println(usuarioPar+" "+valorUsuario+ " "+opComp);
+
+            String ganhador = verificaQuemGanhou(usuarioPar, valorUsuario, opComp);
+
+            escolhaUsuario[jogada] = valorUsuario;
+            escolhaComputador[jogada] = opComp;
+
+            jogada+=1;
+            System.out.println(ganhador);
+            System.out.println("VOCÊ QUER CONTINUAR? 1- SIM - 0- NÃO");
+            continuar = scan.nextInt() == 1;
+
         }
 
-        System.out.println("ESCOLHA UM NUMERO DE 0 A 10:");
-        valorUsuario = scan.nextInt();
-
-        if(valorUsuario < 0 || valorUsuario > 10){
-            System.out.println("VALOR INVÁLIDO!");
-            System.exit(1);
+        for(int i=0; i<escolhaUsuario.length; i++){
+            System.out.println("J: "+escolhaUsuario[i]+ "C: "+escolhaComputador[i]);
         }
-
-
-
-       // System.out.println(usuarioPar+" "+valorUsuario+ " "+opComp);
-
-        String ganhador = verificaQuemGanhou(usuarioPar, valorUsuario, opComp);
-
-        System.out.println(ganhador);
-
     }
 
 }

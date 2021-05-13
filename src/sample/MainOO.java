@@ -13,10 +13,11 @@ public class MainOO {
         computador = new JogadorComputador();
 
         //inicializar
-        jogador.apelido = "Anita";
+        jogador.setApelido("Anita");
 
-        System.out.println("Apelido do Jogador:"+jogador.apelido);
+        System.out.println("Apelido do Jogador:"+jogador.getApelido());
         computador.sorteia();
-        System.out.println("valor sorteado:"+computador.valorAtual);
+        System.out.println("Valor Sorteado:"+computador.getValorAtual());
+
     }
 }

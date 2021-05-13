@@ -9,6 +9,10 @@ public class JogadorComputador {
     private int valorAtual;
     private int[] escolhas;
 
+    public JogadorComputador(int max_jogadas){
+        this.escolhas = new int[max_jogadas];
+    }
+
     //metodos
 
     public void sorteia(){

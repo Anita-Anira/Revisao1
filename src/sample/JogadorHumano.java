@@ -10,6 +10,11 @@ public class JogadorHumano {
 
     //metodos
 
+    public  JogadorHumano(String apelido, int max_jogadas){
+        this.apelido = apelido;
+        escolhas = new int[max_jogadas];
+
+    }
 
     public String getApelido() {
         return apelido;

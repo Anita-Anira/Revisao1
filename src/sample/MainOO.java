@@ -4,16 +4,17 @@ public class MainOO {
 
     public static void  main(String[] args){
 
+        int MAX_JOGADAS=3;
+
         //declaraçoes
         JogadorHumano jogador;
         JogadorComputador computador;
 
         //instanciar
-        jogador = new JogadorHumano();
-        computador = new JogadorComputador();
+        jogador = new JogadorHumano("Anita", MAX_JOGADAS);
+        computador = new JogadorComputador(MAX_JOGADAS);
 
         //inicializar
-        jogador.setApelido("Anita");
 
         System.out.println("Apelido do Jogador:"+jogador.getApelido());
         computador.sorteia();

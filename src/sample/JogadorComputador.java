@@ -15,7 +15,12 @@ public class JogadorComputador {
 
     //metodos
 
-    public void sorteia(){
+    public void registraJogada(int jogada){
+        this.sorteia();
+        this.escolhas[jogada] = this.valorAtual;
+    }
+
+    private void sorteia(){
         Random rnd = new Random(System.currentTimeMillis());
 
         valorAtual = rnd.nextInt(11);

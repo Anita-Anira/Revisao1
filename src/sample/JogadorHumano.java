@@ -2,6 +2,7 @@ package sample;
 
 public class JogadorHumano {
     //atributos
+    public String getEscolha;
     private String apelido;
     private boolean ehPar;
     private int valorAtual;
@@ -14,6 +15,11 @@ public class JogadorHumano {
         this.apelido = apelido;
         escolhas = new int[max_jogadas];
 
+    }
+
+    public void registrarJogada(int valorAtual, int jogada){
+        this.valorAtual = valorAtual;
+        this.escolhas[jogada] = valorAtual;
     }
 
     public String getApelido() {
@@ -34,10 +40,6 @@ public class JogadorHumano {
 
     public int getValorAtual() {
         return valorAtual;
-    }
-
-    public void setValorAtual(int valorAtual) {
-        this.valorAtual = valorAtual;
     }
 
     public int[] getEscolhas() {
